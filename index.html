@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7b1718" />
+  <title>Happy Monthsary, My Love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+* { box-sizing: border-box; }
+:root {
+  --wine: #781719;
+  --wine-dark: #541012;
+  --wine-light: #92292a;
+  --cream: #f5eadb;
+  --paper: #f0e3d2;
+  --ink: #321d1a;
+  --muted: #cbaea1;
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--wine); color: var(--cream); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+.page-shell { max-width: 1600px; margin: auto; overflow: hidden; background: var(--wine); }
+.topbar { height: 78px; padding: 0 7%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #ffffff25; letter-spacing: .12em; font-size: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 17px; }
+.brand span { font-size: 9px; letter-spacing: .2em; }
+.topbar nav { display: flex; gap: 34px; color: #ead4c4; }
+.topbar nav a:hover, .music-toggle:hover { color: white; }
+.music-toggle { color: var(--cream); background: none; border: 1px solid #ffffff70; border-radius: 30px; padding: 10px 15px; font-size: 11px; cursor: pointer; }
+.music-toggle span { margin-left: 7px; }
+.hero { min-height: 690px; padding: 75px 12% 95px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 8%; position: relative; }
+.hero-photo { position: relative; width: 100%; max-width: 480px; transform: rotate(-3deg); padding: 13px 13px 40px; background: #f5e9dc; box-shadow: 0 25px 60px #30090b66; }
+.hero-photo img { width: 100%; height: 440px; display: block; object-fit: cover; filter: saturate(.8); }
+.photo-caption { position: absolute; bottom: 13px; left: 0; right: 0; text-align: center; color: #76514a; font: italic 17px var(--serif); }
+.eyebrow { font-size: 9px; letter-spacing: .25em; font-weight: 600; color: #e7bfb0; }
+.eyebrow span { color: #e7a0a0; margin-left: 8px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+.hero h1 { font-size: clamp(54px, 6.7vw, 96px); line-height: .98; margin: 24px 0; letter-spacing: -.045em; }
+h1 em, h2 em, h3 em { font-weight: 400; color: #e8b9a8; }
+.hero h1 span { font-size: .72em; }
+.intro { color: #e0c8ba; font-size: 13px; line-height: 1.9; max-width: 360px; }
+.round-link { display: inline-flex; gap: 25px; align-items: center; margin-top: 35px; padding-bottom: 9px; border-bottom: 1px solid #d9a99b; font-size: 9px; letter-spacing: .2em; }
+.round-link span { font-size: 17px; }
+.side-note { position: absolute; right: 3%; bottom: 90px; writing-mode: vertical-rl; font-size: 8px; letter-spacing: .25em; color: #d7a99a; }
+.section { padding: 105px 12%; }
+.memory-section, .gallery-section { background: var(--paper); color: var(--ink); }
+.section-heading { text-align: center; margin: 0 auto 55px; }
+.section-heading .eyebrow { color: #98615a; }
+.section-heading h2 { font-size: clamp(42px, 5vw, 64px); margin: 14px 0; }
+.section-heading h2 em { color: #9b4847; }
+.section-heading > p:last-child { font-size: 12px; color: #886f66; }
+.memory-grid { display: grid; grid-template-columns: 1.12fr 1fr 1fr; gap: 25px; align-items: start; }
+.memory-card { margin: 0; background: #fffaf2; padding: 11px 11px 18px; box-shadow: 0 12px 30px #44231b18; }
+.memory-card.tall { margin-top: 38px; }
+.memory-card img { display: block; width: 100%; height: 245px; object-fit: cover; }
+.memory-card.tall img { height: 325px; }
+.memory-card figcaption { padding: 15px 7px 2px; font: italic 16px var(--serif); }
+.memory-card figcaption span { display: block; font: 8px var(--sans); letter-spacing: .17em; color: #a26d61; margin-bottom: 8px; }
+.favorites { background: var(--wine-dark); }
+.light h2 { color: var(--cream); }
+.favorite-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 12%; align-items: center; max-width: 950px; margin: auto; }
+.favorite-photo { position: relative; padding: 12px; background: #f3e8d9; transform: rotate(2deg); }
+.favorite-photo img { width: 100%; height: 390px; object-fit: cover; display: block; }
+.tape { position: absolute; top: -18px; left: 43%; width: 55px; height: 30px; background: #e7bdb0cc; color: #8d292b; display: grid; place-items: center; transform: rotate(-8deg); }
+.favorite-text { max-width: 380px; }
+.tiny-heart { font-size: 34px; color: #e7b5a4; }
+.favorite-text h3 { font-size: clamp(45px, 5vw, 67px); line-height: 1.04; margin: 14px 0 22px; }
+.favorite-text p { font-size: 13px; line-height: 2; color: #dec5b8; }
+.favorite-text .signature { margin-top: 28px; font: italic 19px var(--serif); color: #f0d7c8; }
+.signature span { color: #e9a9a0; }
+.letter-section { background: #8a2022; padding-top: 120px; padding-bottom: 120px; }
+.letter-card { max-width: 800px; min-height: 510px; margin: auto; position: relative; background: #f2e7d8; color: var(--ink); padding: 25px 8%; box-shadow: 0 25px 70px #31090a55; }
+.letter-top { display: flex; justify-content: space-between; color: #98615a; font-size: 8px; letter-spacing: .18em; border-bottom: 1px solid #d8c5b4; padding-bottom: 16px; }
+.letter-content { max-width: 540px; margin: 42px auto; }
+.letter-content .eyebrow { color: #a0645d; }
+.letter-content h2 { font-size: clamp(38px, 5vw, 58px); line-height: 1.05; margin: 15px 0 25px; }
+.letter-content h2 em { color: #9c4142; }
+.letter-content p:not(.eyebrow) { font: 14px/1.95 var(--serif); color: #634a40; }
+.letter-signoff { margin-top: 25px; }
+.letter-signoff em { color: #8a2527; font-size: 21px; }
+.letter-stamp { position: absolute; right: 7%; bottom: 32px; border: 1px solid #b66d66; color: #9b4443; border-radius: 50%; width: 76px; height: 76px; display: grid; place-content: center; text-align: center; font-size: 8px; letter-spacing: .12em; transform: rotate(12deg); }
+.polaroid-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; align-items: center; }
+.polaroid { margin: 0; background: #fffaf3; padding: 10px 10px 20px; box-shadow: 0 12px 30px #44231b20; }
+.polaroid img { width: 100%; height: 210px; object-fit: cover; display: block; }
+.polaroid figcaption { text-align: center; color: #70524a; font: italic 17px var(--serif); padding-top: 13px; }
+.tilt-left { transform: rotate(-4deg); }
+.tilt-right { transform: rotate(3deg); }
+.song-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; align-items: center; padding-top: 120px; padding-bottom: 120px; }
+.song-copy h2 { font-size: clamp(42px, 5vw, 65px); line-height: 1.08; margin: 20px 0; }
+.song-copy p:not(.eyebrow) { color: #e0c8ba; font-size: 13px; line-height: 1.8; max-width: 350px; }
+.outline-button { margin-top: 22px; border: 1px solid #e7c4b4; color: var(--cream); background: transparent; padding: 13px 19px; font-size: 9px; letter-spacing: .16em; cursor: pointer; }
+.outline-button:hover { background: #ffffff16; }
+.vinyl-wrap { min-height: 330px; display: grid; place-items: center; position: relative; }
+.vinyl { width: min(310px, 70vw); aspect-ratio: 1; border-radius: 50%; background: repeating-radial-gradient(circle, #211d1c 0 2px, #302b29 3px 5px, #171514 6px 8px); box-shadow: 0 25px 45px #30090b70; display: grid; place-items: center; animation: spin 12s linear infinite; }
+.vinyl-label { width: 105px; aspect-ratio: 1; border-radius: 50%; background: #d7a18b; color: #662022; display: grid; place-content: center; text-align: center; font: 13px var(--serif); letter-spacing: .1em; }
+.vinyl-label small { font-size: 16px; }
+.vinyl-spark { position: absolute; top: 12%; right: 12%; color: #e9bca9; font-size: 35px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.ending { text-align: center; padding: 100px 20px 110px; background: var(--wine-dark); }
+.ending h2 { font-size: clamp(42px, 5vw, 65px); line-height: 1.1; margin: 22px 0; }
+.ending-heart { font-size: 42px; color: #e8b5a4; margin: 28px 0 12px; }
+.end-note { font: italic 18px var(--serif); color: #e4c8b9; }
+footer { display: flex; justify-content: space-between; padding: 22px 7%; font-size: 8px; letter-spacing: .2em; color: #d2a89a; border-top: 1px solid #ffffff25; }
+@media (max-width: 760px) {
+  .topbar { height: 65px; padding: 0 5%; }
+  .topbar nav { display: none; }
+  .brand span { font-size: 8px; }
+  .music-toggle { padding: 9px 11px; }
+  .music-toggle span { font-size: 9px; }
+  .hero { padding: 55px 8% 75px; grid-template-columns: 1fr; gap: 48px; }
+  .hero-photo { max-width: 360px; margin: auto; }
+  .hero-photo img { height: 330px; }
+  .hero-copy { text-align: center; }
+  .hero-copy .intro { margin: auto; }
+  .side-note { display: none; }
+  .section { padding: 75px 7%; }
+  .memory-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .memory-card.tall { margin-top: 0; grid-column: span 2; }
+  .memory-card.tall img { height: 280px; }
+  .memory-card img { height: 190px; }
+  .favorite-layout, .song-section { grid-template-columns: 1fr; gap: 45px; }
+  .favorite-photo { max-width: 420px; margin: auto; }
+  .favorite-photo img { height: 310px; }
+  .favorite-text { text-align: center; margin: auto; }
+  .letter-section { padding: 65px 6%; }
+  .letter-card { padding: 20px 7%; }
+  .letter-top span:last-child { display: none; }
+  .letter-stamp { width: 58px; height: 58px; right: 5%; bottom: 18px; font-size: 7px; }
+  .letter-content { margin: 32px auto 65px; }
+  .polaroid-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .polaroid img { height: 180px; }
+  .vinyl-wrap { min-height: 280px; }
+  footer { padding: 20px 5%; font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .vinyl { animation: none; } }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Back to top">♡ <span>Mica noastra lume</span></a>
+      <nav>
+        <a href="#memories">Amintiri</a>
+        <a href="#letter">Pentru Tine</a>
+        <a href="#favorites">Noi</a>
+      </nav>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle music">♫ <span>Play our song</span></button>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-photo photo-frame">
+          <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=1400&q=85" alt="Romantic flowers" />
+          <div class="photo-caption">a little reminder of us</div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">PENTRU PERSOANA MEA PREFERATA <span>✦</span></p>
+          <h1>Happy<br><em>6 months</em><br><span>My hope</span></h1>
+          <p class="intro">Iubesc fiecare moment alaturi de tine</p>
+          <a class="round-link" href="#memories">Da scroll <span>↓</span></a>
+        </div>
+        <span class="side-note">Facut cu iubire, doar pentru tine — ♥</span>
+      </section>
+
+      <section class="memory-section section" id="memories">
+        <div class="section-heading">
+          <p class="eyebrow">CAPITOLUL 1-LUCRURI MARUNTE</p>
+          <h2><em>Amintiri</em></h2>
+          <p>Unele momente merita pastrate in suflet.</p>
+        </div>
+        <div class="memory-grid">
+          <figure class="memory-card tall">
+            <img src="img1.jpeg" alt="A couple holding hands" />
+            <figcaption><span>01 / Inceputul</span>Unde ai adus culoare in viata mea</figcaption>
+          </figure>
+          <figure class="memory-card">
+            <img src="img2.jpeg" alt="Couple together" />
+            <figcaption><span>02 / LOCUL MEU FERICIT</span>Oriunde, atat timp cat esti cu mine.</figcaption>
+          </figure>
+          <figure class="memory-card">
+            <img src="img3.jpeg" alt="Friends celebrating" />
+            <figcaption><span>03 / ZILELE NOASTRE</span>Pana si zilele obisnuite sunt speciale cu tine.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="favorites section" id="favorites">
+        <div class="section-heading light">
+          <p class="eyebrow">CAPITOLUL DOI, IUBITA MEA</p>
+          <h2>My Favorite <em>Person</em></h2>
+        </div>
+        <div class="favorite-layout">
+          <div class="favorite-photo photo-frame">
+            <img src="img4.jpeg" alt="A couple sharing a moment" />
+            <span class="tape">♥</span>
+          </div>
+          <div class="favorite-text">
+            <span class="tiny-heart">♡</span>
+            <h3>Mereu ai<br><em>fost tu.</em></h3>
+            <p>Faci lumea sa fie mai blanda. Multuemsc pentru fiecare zambet, fiecare ras alaturi de tine, fiecare moment imparatist, te iubesc mai.</p>
+            <p class="signature">O sa te aleg pe tine, mereu.. <span>♥</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="letter-section section" id="letter">
+        <div class="letter-card">
+          <div class="letter-top"><span>♡ O SCRISOARE PENTRU TINE</span><span>PENTRU CAND ITI LIPSESC</span></div>
+          <div class="letter-content">
+            <p class="eyebrow">MY HERO,</p>
+            <h2>Pentru fata<br><em>care are inima mea.</em></h2>
+            <p>Sunt atât de multe lucruri pe care mi-aș dori să le pot cuprinde într-o singură scrisoare. Mi-ai făcut zilele mai luminoase în moduri în care nici nu știam că aveam nevoie. Până și cele mai mici lucruri devin frumoase atunci când am ocazia să le împărtășesc cu tine.</p>
+            <p>Îți mulțumesc că m-ai ales, că ai avut răbdare cu mine și că am creat împreună toate aceste amintiri. Indiferent câte luni vor trece, sper să nu încetăm niciodată să găsim noi motive pentru a ne îndrăgosti unul de celălalt.</p>
+            <p class="letter-signoff">Cu toata dragostea,<br><em>Bivo</em> ♡</p>
+          </div>
+          <div class="letter-stamp">S.W.A.K<br></div>
+        </div>
+      </section>
+
+      <section class="gallery-section section">
+        <div class="section-heading">
+          <p class="eyebrow">CAPITOLUL TREI-CATEVA MOMENTE</p>
+          <h2>Cateva din momentele mele<em> favorite</em></h2>
+          <p>Tho, iubesc fiecare moment alaturi de tine</p>
+        </div>
+        <div class="polaroid-grid">
+          <figure class="polaroid tilt-left"><img src="img5.jpeg" alt="Wedding flowers" /><figcaption>tu si eu♡</figcaption></figure>
+          <figure class="polaroid tilt-right"><img src="img6.jpeg" alt="Couple holding hands" /><figcaption>in bratele tale, ma simt mereu in siguranta</figcaption></figure>
+          <figure class="polaroid tilt-left"><img src="img7.jpeg"Flowers" /><figcaption>Cand ne-am apropiat sufletele mai tare</figcaption></figure>
+          <figure class="polaroid tilt-right"><img src="img8.jpeg" alt="Celebration" /><figcaption>Fara niciun motiv, iubesc poza asta</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="song-section section">
+        <div class="song-copy">
+          <p class="eyebrow">Melodia noastra</p>
+          <h2>Melodia asta<br><em>imi aduce mereu aminte de noi.</em></h2>
+          <p>Fiecare inceput are un sunet, acesta este al nsotru.</p>
+          <button class="outline-button" id="songButton" type="button">Muzica ♫</button>
+        </div>
+        <div class="vinyl-wrap">
+          <div class="vinyl"><div class="vinyl-label"><span>Melodia<br>noastra</span><small>♡</small></div></div>
+          <div class="vinyl-spark">✦</div>
+        </div>
+      </section>
+
+      <section class="ending">
+        <p class="eyebrow">PANA LA URMATORUL CAPITOL</p>
+        <h2>Pentru noi, <br><em>si pentru tot ce o sa urmeze.</em></h2>
+        <div class="ending-heart">♡</div>
+        <p class="end-note">Te vad, te inteleg, te iubesc.</p>
+      </section>
+    </main>
+    <footer><span>Facutcu ♡</span><span>Te iubesc mai</span></footer>
+  </div>
+
+  <!-- Optional: add your MP3 file and change the source in script.js -->
+  <audio id="ourSong" preload="none"></audio>
+  <script>
+// PERSONALIZE THIS FILE:
+// 1. Replace the image URLs in index.html with your own photo URLs.
+// 2. Put an MP3 file in this folder (for example: our-song.mp3), then set SONG_FILE below.
+
+const SONG_FILE = "melodie.mp3"; // Example: "our-song.mp3"
+
+const audio = document.getElementById("ourSong");
+const musicToggle = document.getElementById("musicToggle");
+const songButton = document.getElementById("songButton");
+
+if (SONG_FILE) audio.src = SONG_FILE;
+
+async function toggleMusic() {
+  if (!SONG_FILE) {
+    alert("Add your MP3 file to the website folder and set SONG_FILE in script.js to its filename.");
+    return;
+  }
+
+  if (audio.paused) {
+    try {
+      await audio.play();
+      musicToggle.innerHTML = "♫ <span>Pause our song</span>";
+      songButton.textContent = "PAUSE OUR SONG ♫";
+    } catch (error) {
+      alert("Your browser couldn't play the song. Check that the MP3 filename is correct.");
+    }
+  } else {
+    audio.pause();
+    musicToggle.innerHTML = "♫ <span>Play our song</span>";
+    songButton.textContent = "A LITTLE MORE MUSIC ♫";
+  }
+}
+
+musicToggle.addEventListener("click", toggleMusic);
+songButton.addEventListener("click", toggleMusic);
+
+audio.addEventListener("ended", () => {
+  musicToggle.innerHTML = "♫ <span>Play our song</span>";
+  songButton.textContent = "A LITTLE MORE MUSIC ♫";
+});
+
+// Gentle reveal as sections enter the screen.
+const revealTargets = document.querySelectorAll(
+  ".memory-card, .favorite-photo, .favorite-text, .letter-card, .polaroid, .song-copy, .vinyl-wrap"
+);
+
+revealTargets.forEach((item) => item.classList.add("reveal"));
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealTargets.forEach((item) => observer.observe(item));
+
+  </script>
+</body>
+</html>
